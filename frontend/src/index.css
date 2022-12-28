@@ -1,0 +1,830 @@
+body {
+  font-family: "Source Sans Pro", "Calibri", "sans-serif";
+
+  font-size: inherit;
+  font-weight: normal;
+  line-height: inherit;
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+@font-face {
+  font-family: "fa";
+  src: url("fonts/fa-light-300.woff2") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+.fa {
+  font-family: "fa";
+}
+
+#root {
+  margin: 0px;
+  padding: 0px;
+  height: 100vh;
+  width: 100vw;
+}
+
+:root {
+  --ui-color: #893dff;
+  --ui-color-dark: #411d7a;
+  --ui-color-light: #f5efff;
+  --ui-blue: #597dfc;
+}
+
+input.input-default {
+  display: flex;
+  flex: 1;
+  border: 0px;
+  outline: none;
+}
+.custom-box-shadow,
+.input-icon-div.custom-format.custom-box-shadow {
+  color: rgba(0, 0, 0, 0.9);
+  background-color: #fff;
+  border: 1px solid var(--ui-blue);
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(66, 66, 66, 0.075),
+    0 0 0 3px rgba(0, 94, 184, 0.25);
+}
+
+.input-icon-div.custom-format {
+  padding: 0 0.2rem;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 2.15;
+  color: rgba(0, 0, 0, 0.9);
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 0.175rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.input-icon-div {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border-radius: 0.5em;
+  border: 2px solid var(--ui-color-dark);
+}
+
+.navbar-custom {
+  display: flex;
+  background-color: white;
+  min-height: 60px;
+  padding: 10px 20px;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid #411d7a;
+  user-select: none;
+}
+
+.navbar-links-container {
+  display: flex;
+  width: max-content;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.navbar-logo {
+  border-bottom: 5px solid var(--ui-color);
+  height: min-content;
+  display: inline-block;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.navbar-link {
+  color: var(--ui-color-dark);
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  text-decoration: none;
+  transform: scale(1.1);
+  border-bottom: 1px dashed var(--ui-color-dark);
+  transition: transform 0.1s ease-out;
+}
+
+.navbar-link.selected {
+  font-weight: 600;
+  border-bottom: 3px solid var(--ui-color);
+  color: var(--ui-color-dark);
+  text-decoration: none;
+}
+
+.navbar-link.selected:hover {
+  text-decoration: none;
+  transform: scale(1);
+}
+
+.notifier {
+  z-index: -1;
+  position: absolute;
+  transform: translate(0, -100%);
+  height: 30px;
+  left: 10px;
+  right: 10px;
+  background-color: #ffc265;
+  font-size: large;
+  font-weight: bolder;
+  border-radius: 0px 0px 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in;
+}
+
+.notifier.show {
+  transform: translate(0px, 0px);
+  transition: transform 0.2s ease-in;
+}
+
+.navbar-user-button {
+  border: 2px solid var(--ui-color-dark);
+  color: var(--ui-color-dark);
+  outline: none;
+  background-color: transparent;
+  border-radius: 4px;
+  min-width: 100px;
+  min-height: 40px;
+  text-align: left;
+}
+/* DropDown Style starts Here*/
+/* https://www.w3schools.com/css/css_dropdowns.asp */
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown {
+  display: inline;
+  position: relative;
+  margin-left: auto;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--ui-blue);
+  z-index: 7;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@keyframes page-FadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+  animation: page-FadeIn 0.2s ease-out 0s 1 forwards;
+}
+
+.page-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+/* LoginPage  styling starts Here*/
+
+.login-div {
+  display: flex;
+  align-self: stretch;
+  margin: 2% 2%;
+  min-width: 320px;
+  flex-direction: column;
+  box-shadow: 0px 0px 5px -2px grey;
+  border-radius: 5px;
+  padding: 30px 20px 20px 20px;
+  background-color: white;
+  animation: 0.4s ease-out 0s 1 slideInFromLeft;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.inp-container {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.inp-label {
+  font-size: 0.92rem;
+  color: #545454;
+}
+
+input.custom-und {
+  font-size: 1.1rem;
+  width: auto;
+  border: 0px;
+  outline: none;
+  border-bottom: 2px solid #adadad;
+}
+
+input.custom-und:focus {
+  border-bottom: 2px solid #1e1e1e;
+}
+
+button.custom-purple {
+  background-color: var(--ui-color);
+  color: white;
+  outline: none;
+  border: 1px solid var(--ui-color);
+  border-radius: 3px;
+  min-width: 100px;
+  width: max-content;
+  height: 40px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+button.custom-purple:hover {
+  background-color: white;
+  color: var(--ui-color);
+  transition: all ease-out 0.2s;
+}
+
+button.custom-purple:active {
+  transform: scale(0.97);
+}
+
+button.custom-purple-reverse {
+  background-color: white;
+  color: var(--ui-color);
+  outline: none;
+  border: 1px solid var(--ui-color);
+  border-radius: 3px;
+  width: max-content;
+  height: 40px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+button.custom-purple-reverse:hover {
+  background-color: var(--ui-color);
+  color: white;
+  transition: all ease-out 0.2s;
+}
+
+button.custom-purple-reverse:active {
+  transform: scale(0.97);
+}
+
+button.custom-blue {
+  background-color: var(--ui-blue);
+  color: white;
+  outline: none;
+  border: 1px solid var(--ui-blue);
+  border-radius: 3px;
+  width: max-content;
+  height: 40px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+button.custom-blue:hover {
+  background-color: white;
+  color: var(--ui-blue);
+  transition: all ease-out 0.2s;
+}
+
+button.custom-blue:active {
+  transform: scale(0.97);
+}
+
+button.custom-blue-reverse {
+  background-color: white;
+  color: var(--ui-blue);
+  outline: none;
+  border: 1px solid var(--ui-blue);
+  border-radius: 3px;
+  width: max-content;
+  height: 40px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+button.custom-blue-reverse:hover {
+  background-color: var(--ui-blue);
+  color: white;
+  transition: all ease-out 0.2s;
+}
+
+button.custom-blue-reverse:active {
+  transform: scale(0.97);
+}
+
+.btn-google {
+  background-color: transparent;
+  color: #ea4335;
+  outline: none;
+  border: 1px solid #ea4335;
+  border-radius: 3px;
+  min-width: 100px;
+  width: max-content;
+  height: 40px;
+}
+
+.btn-google:hover {
+  background-color: #f9c4bf;
+  color: white;
+  transition: all ease-out 0.2s;
+}
+
+.btn-google:active {
+  transform: scale(0.97);
+}
+
+.login-button-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.login-container-div {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 95%;
+  width: 90%;
+  margin: 10px 15px 10px 15px;
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px -2px black;
+}
+
+/* CandidateDashBoard style start here */
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(15%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.interview-list-container {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.interview-item {
+  border: 2px solid var(--ui-color-dark);
+  border-radius: 5px;
+  padding: 10px;
+  font-size: large;
+  margin-bottom: 20px;
+  width: 90%;
+  user-select: none;
+  background-color: var(--ui-color-light);
+  animation: slideInFromBottom 0.2s ease-in 0s 1;
+}
+
+.interview-details {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 20px;
+  row-gap: 10px;
+  align-items: center;
+}
+
+/* Candidate Profile Page starts here */
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  gap: 10px;
+  padding: 10px;
+  justify-self: stretch;
+  align-self: center;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #f5f7fd;
+  user-select: none;
+}
+.profile-left-pane {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
+
+.profile-middle-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 6;
+}
+
+.profile-right-pane {
+  display: flex;
+  flex-direction: column;
+  flex: 1.5;
+  gap: 10px;
+}
+
+.profile-orverview {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.profile-image-container {
+  margin-bottom: 10px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.profile-image {
+  height: 115px;
+  transform: translate(-6px, 0px);
+}
+
+.personal-details {
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.user-field {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  align-self: stretch;
+  padding: 5px;
+  border: 1px solid #597dfc35;
+  border-radius: 5px;
+  margin: 10px 0px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.field-icon-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  font-size: 2rem;
+  justify-content: center;
+}
+
+.field-icon {
+  color: #597dfc;
+  padding: 10px;
+  font-size: 1.4rem;
+  background-color: #eef2ff;
+  border-radius: 5px;
+  align-self: left;
+  width: min-content;
+}
+
+.field-details {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.field-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1e1e1e99;
+}
+.field-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e1e1ec0;
+}
+
+.about-title {
+  background-color: white;
+  border-radius: 10px;
+  align-self: stretch;
+  padding: 10px;
+  color: #1e1e1e;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.about-section {
+  background-color: white;
+  border-radius: 10px;
+  align-self: stretch;
+  padding: 10px;
+  margin-top: -5px;
+  white-space: pre-wrap;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.experience-education {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.experience-education > div {
+  background-color: #eef2ff55;
+  border: 1px solid #597dfc35;
+  border-radius: 5px;
+  padding: 10px;
+  color: #597dfccc;
+}
+.resume-div {
+  background-color: white;
+  padding: 10px;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  justify-content: stretch;
+  align-items: flex-start;
+}
+
+.resume-div:hover > .edit-div {
+  opacity: 1;
+}
+
+.edit-div {
+  padding: 2px;
+  font-size: 1rem;
+  border-radius: 3.5px;
+  width: min-content;
+  opacity: 0;
+  align-self: flex-end;
+}
+
+.edit-div:hover {
+  background-color: #597dfc55;
+}
+
+/* Add opening page starts here */
+
+.job-post-container {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  gap: 10px;
+  padding: 15px 10px;
+  justify-self: stretch;
+  align-self: center;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #f5f7fd;
+  user-select: none;
+}
+
+.job-details {
+  display: grid;
+  row-gap: 20px;
+  grid-template-columns: min-content auto;
+  justify-content: stretch;
+  align-items: center;
+}
+
+.job-details-field {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-right: 20px;
+  color: #1e1e1ecf;
+}
+
+.job-control-container {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  margin-top: 10px;
+  gap: 10px;
+}
+.custom-input-style {
+  line-height: 25px;
+  font-size: 1rem;
+
+  display: flex;
+  flex: 1;
+  border: 0px;
+  outline: none;
+  color: #1e1e1ee0;
+}
+
+.custom-input-style:disabled {
+  background-color: #f5f6f7;
+}
+
+/* CandidateJobDetails style starts here  */
+
+.job-details-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 95%;
+  background-color: #f5f7fd;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.job-details-content {
+  margin-top: 5px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1e1e1ecf;
+  white-space: pre-wrap;
+}
+
+.job-details-div {
+  background-color: #d5defe55;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #597dfc55;
+  margin: 10px 0px;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.ai-action-section {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  gap: 10px;
+  padding: 10px;
+  justify-self: stretch;
+  align-self: center;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #b0d4f448;
+  user-select: none;
+}
+
+.resume-analysis-score {
+  border: 2px solid #007fd4aa;
+  display: flex;
+  flex: 1;
+  padding: 5px 10px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #411d7aaa;
+}
+.alert-message {
+  background-color: #fff3cd;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 1.1rem;
+}
+
+.video-frame {
+  width: 480px;
+  height: 360px;
+}
+
+.video-container {
+  opacity: 0;
+  margin-top: 50px;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 480px;
+  height: 360px;
+  padding: 0px;
+}
+
+.video-container.visible {
+  opacity: 1;
+}
+
+/* InterviewCandidateAnalysis page styles stars here */
+
+.interview-analysis {
+  border: 2px solid #007fd4aa;
+  display: flex;
+  flex: 1;
+  padding: 5px 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #411d7aaa;
+  gap: 10px;
+}
+
+.emoji-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tsk-progress-bar-container {
+  height: 25px;
+  min-width: 82vw;
+  padding: 1.5px;
+  border-radius: 4px;
+  border: 2px solid #165421;
+}
+
+.tsk-progress-bar {
+  min-height: 100%;
+  transform: translate(0px, calc(-100%));
+  background-color: #2ca945;
+  border-radius: 3px;
+  color: #323232;
+  overflow: hidden;
+}
+
+.tsk-progress-prercent.cont {
+  transform: translate(3px, 0);
+  margin-left: 40.5vw;
+  color: #222222;
+}
+
+.tsk-progress-prercent.inside-bar {
+  position: absolute;
+  margin-left: 40.5vw;
+  color: white;
+}
+
+.audio-result-container {
+  padding: 10px;
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 5px;
+  border-radius: 4px;
+}
+
+.sample-interview-div {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
