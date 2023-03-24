@@ -29,3 +29,7 @@ Hiring right candidates based on their videos
 <li>Hiring companies could use this as another round before actaul interviews</li>
 <li>Candidates could use it for practice of their Interview Skills</li>
 </ul>
+
+# Contributors
+1. <a href = "https://github.com/harivilasp" >Hari Vilas Panjwani </a>
+2. <a href = "https://github.com/ayush1920"> Ayush Kumar</a> 
