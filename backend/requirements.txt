@@ -1,0 +1,13 @@
+Flask
+Flask-Cors
+pymongo
+SpeechRecognition
+librosa
+numpy
+nltk
+opencv-python
+requests
+urllib3
+pdfplumber
+tensorflow
+python-dotenv
