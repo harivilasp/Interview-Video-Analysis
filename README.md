@@ -1,5 +1,7 @@
 # Interview-Video-Analysis
 
+Detailed Repository explanation: [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/harivilasp/Interview-Video-Analysis)
+
 A comprehensive platform for automated video interview analysis, designed to help both hiring companies and candidates in the interview process.
 
 ![System Architecture](hiring_dependency.png)
